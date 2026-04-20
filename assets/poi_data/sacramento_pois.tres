@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="POIManager" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/poi_marker.gd" id="1"]
+
+[sub_resource type="Resource" id="POI_1"]
+script = ExtResource("1")
+poi_id = "capitol_building"
+poi_name = "California State Capitol"
+poi_type = "landmark"
+position_world = Vector3(0, 0, 0)
+description = "The seat of California government, now overrun by feral turkeys."
+is_discovered = false
+is_active = true
+linked_quest_id = ""
+linked_npc_id = ""
+priority = 10
+
+[sub_resource type="Resource" id="POI_2"]
+script = ExtResource("1")
+poi_id = "tower_bridge"
+poi_name = "Tower Bridge"
+poi_type = "landmark"
+position_world = Vector3(500, 0, 500)
+description = "Iconic bridge spanning the Sacramento River."
+is_discovered = false
+is_active = true
+linked_quest_id = ""
+linked_npc_id = ""
+priority = 8
+
+[sub_resource type="Resource" id="POI_3"]
+script = ExtResource("1")
+poi_id = "old_sacramento"
+poi_name = "Old Sacramento"
+poi_type = "landmark"
+position_world = Vector3(-1000, 0, -1000)
+description = "Historic district with shops and riverboat tours."
+is_discovered = false
+is_active = true
+linked_quest_id = ""
+linked_npc_id = ""
+priority = 7
+
+[sub_resource type="Resource" id="POI_4"]
+script = ExtResource("1")
+poi_id = "zoo"
+poi_name = "Sacramento Zoo"
+poi_type = "landmark"
+position_world = Vector3(1500, 0, 1500)
+description = "Home to exotic animals and NIMBY protests."
+is_discovered = false
+is_active = true
+linked_quest_id = ""
+linked_npc_id = ""
+priority = 6
+
+[sub_resource type="Resource" id="POI_5"]
+script = ExtResource("1")
+poi_id = "university"
+poi_name = "UC Davis"
+poi_type = "landmark"
+position_world = Vector3(-2000, 0, 2000)
+description = "World-renowned agricultural university."
+is_discovered = false
+is_active = true
+linked_quest_id = ""
+linked_npc_id = ""
+priority = 5
+
+[resource]
+script = ExtResource("2")  # Assuming POIManager script
+poi_database = {
+	"capitol_building": SubResource("POI_1"),
+	"tower_bridge": SubResource("POI_2"),
+	"old_sacramento": SubResource("POI_3"),
+	"zoo": SubResource("POI_4"),
+	"university": SubResource("POI_5")
+}

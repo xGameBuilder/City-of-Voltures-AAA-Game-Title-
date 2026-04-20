@@ -18,6 +18,41 @@ func _ready() -> void:
 	player = get_tree().root.get_child(0).find_child("PlayerController", true, false)
 	if not player:
 		push_warning("POIManager: Player not found")
+	
+	# Initialize default Sacramento POIs
+	initialize_default_pois()
+
+func initialize_default_pois() -> void:
+	var pois = [
+		POIMarker.new("capitol_building", "California State Capitol", "landmark", Vector3(0, 0, 0)),
+		POIMarker.new("tower_bridge", "Tower Bridge", "landmark", Vector3(500, 0, 500)),
+		POIMarker.new("old_sacramento", "Old Sacramento", "landmark", Vector3(-1000, 0, -1000)),
+		POIMarker.new("zoo", "Sacramento Zoo", "landmark", Vector3(1500, 0, 1500)),
+		POIMarker.new("university", "UC Davis", "landmark", Vector3(-2000, 0, 2000))
+	]
+	
+	for poi in pois:
+		poi.description = get_default_description(poi.poi_id)
+		poi.priority = get_default_priority(poi.poi_id)
+		register_poi(poi)
+
+func get_default_description(poi_id: String) -> String:
+	match poi_id:
+		"capitol_building": return "The seat of California government, now overrun by feral turkeys."
+		"tower_bridge": return "Iconic bridge spanning the Sacramento River."
+		"old_sacramento": return "Historic district with shops and riverboat tours."
+		"zoo": return "Home to exotic animals and NIMBY protests."
+		"university": return "World-renowned agricultural university."
+		_: return "A point of interest in Sacramento."
+
+func get_default_priority(poi_id: String) -> int:
+	match poi_id:
+		"capitol_building": return 10
+		"tower_bridge": return 8
+		"old_sacramento": return 7
+		"zoo": return 6
+		"university": return 5
+		_: return 1
 
 func _process(delta: float) -> void:
 	if not player:
