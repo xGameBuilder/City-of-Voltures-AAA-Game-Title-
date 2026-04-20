@@ -1,0 +1,21 @@
+{
+  "name": "i23dagentskill",
+  "version": "1.0.0",
+  "description": "Agent Skill and CLI wrapper for converting images to 3D models using Hunyuan3D-2.1",
+  "main": "index.js",
+  "bin": {
+    "i23dagentskill": "./bin/cli.js",
+    "image-to-3d": "./bin/cli.js"
+  },
+  "scripts": {
+    "mcp": "node mcp.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.0",
+    "axios": "^1.7.9",
+    "commander": "^13.1.0",
+    "ora": "^5.4.1"
+  },
+  "type": "module",
+  "preferGlobal": true
+}
